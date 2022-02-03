@@ -49,11 +49,4 @@ except:
 
     Command=f'ffmpeg -y -loglevel error -hide_banner -stats -framerate {Config["video"]["fps"]} -video_size {Config["video"]["resolution"]} -f gdigrab -draw_mouse 1 -i desktop {AudioDevices} {Config["ffmpeg"]["arguments"]} -pix_fmt yuv420p "{OutputPath}/{datetime.now().strftime("%d-%m-%Y %H-%M-%S")}{Config["video"]["container"]}"'
     print('Press Q to stop recording.\n')
-    run(Command,shell=True)   
-    
-
-
-
-
-
-
+    run(Command,shell=True)
