@@ -4,7 +4,6 @@ from os import path, environ
 from sys import argv
 from configparser import ConfigParser
 from datetime import datetime
-
 Config=ConfigParser()
 Config.read(f'{path.abspath(path.split(argv[0])[0])}/settings.ini')
 try:
@@ -41,8 +40,6 @@ except:
         except:
             break  
         AudioDevices=AudioDevices.strip()    
-
-    # Output
     OutputPath=Config['ffmpeg']['output'].lower()
     if OutputPath=='default':
         OutputPath=f'{environ["USERPROFILE"]}/Videos'
