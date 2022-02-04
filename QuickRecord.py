@@ -43,8 +43,16 @@ except:
     OutputPath=Config['ffmpeg']['output'].lower()
     if OutputPath=='default':
         OutputPath=f'{environ["USERPROFILE"]}/Videos'
+    if Config['video']['input'].lower() == 'desktop':
+        Input='desktop'
+        VideoSize=f'-video_size {Config["video"]["resolution"]}'
+    else:
+        Input=f'title="{Config["video"]["input"]}"' 
+        VideoSize=""  
+        print('Warning: Capturing Window Resolution.\n') 
+
     run('powershell -c (New-Object Media.SoundPlayer "C:\\Windows\\Media\\notify.wav").PlaySync();')
-    Command=f'ffmpeg -y -loglevel error -hide_banner -stats -framerate {Config["video"]["fps"]} -video_size {Config["video"]["resolution"]} -f gdigrab -draw_mouse 1 -i desktop {AudioDevices} {Config["ffmpeg"]["arguments"]} "{OutputPath}/{datetime.now().strftime("%d-%m-%Y %H-%M-%S")}{Config["video"]["container"]}"'
+    Command=f'ffmpeg -y -loglevel error -hide_banner -stats -framerate {Config["video"]["fps"]} {VideoSize} -f gdigrab -draw_mouse 1 -i {Input} {AudioDevices} {Config["ffmpeg"]["arguments"]} "{OutputPath}/{datetime.now().strftime("%d-%m-%Y %H-%M-%S")}{Config["video"]["container"]}"'
     print(f'Command: \n{Command}\n')
     print('Press Q to stop recording.\n')
     run(Command,shell=True)
