@@ -23,7 +23,7 @@ output = default
 4. `input` => desktop (For capturing display.) or specify a window name.
 
 #### 2. Audio
-Add Audio Devices.
+Add Audio Devices. (Use `None` for omitting audio.)
 ```ini
 [audio]
 1 = Microphone # Input 1
