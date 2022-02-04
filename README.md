@@ -30,7 +30,7 @@ Add Audio Devices.
 2 = Stereo Mix # Input 2
 ```
 
-Get a list of usable devices: `quickrecord.py devices`:
+Get a list of usable devices > `quickrecord.py devices`:                               
 Output:
 ```
 Devices:
