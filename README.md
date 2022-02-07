@@ -1,5 +1,5 @@
 # QuickRecord
-A Screen Recorder made using Python & FFmpeg.
+A Python wrapper for FFmpeg's gdigrab.
 
 # Usage
 ```ini
